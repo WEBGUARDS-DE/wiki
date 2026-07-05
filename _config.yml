@@ -1,0 +1,18 @@
+# Jekyll Configuration for GitHub Pages
+
+title: WEBGUARDS Wiki
+description: Zentrale Dokumentation für WEBGUARDS
+baseurl: "/wiki"
+url: "https://webguards-de.github.io"
+
+theme: jekyll-theme-minimal
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+exclude:
+  - .git
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
