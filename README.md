@@ -17,6 +17,10 @@ Zentrale Dokumentation für WEBGUARDS Projekte, Prozesse und Wissen.
 - [Projekte](docs/projects/)
 - [Team](docs/team/)
 
+## Offizielle Dokumente
+
+- [📋 Handelsregisterauszug](handelsregister/) – Aktuelle Firmendaten (Auto-Update)
+
 ## Beitragen
 
 1. Fork
@@ -26,4 +30,4 @@ Zentrale Dokumentation für WEBGUARDS Projekte, Prozesse und Wissen.
 
 ---
 
-**Zuletzt aktualisiert:** 2026-07-05
+**Zuletzt aktualisiert:** 2026-07-14
