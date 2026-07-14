@@ -204,7 +204,6 @@
             <div class="header-info">
                 <div>
                     <h1>🏢 Handelsregisterauszug</h1>
-                    <p class="timestamp">Zuletzt aktualisiert: <span id="lastUpdate">-</span></p>
                 </div>
             </div>
         </header>
@@ -240,7 +239,6 @@
 
                 const now = new Date();
                 const dateStr = `${now.getDate()}.${now.getMonth() + 1}.${now.getFullYear()}, ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-                document.getElementById('lastUpdate').textContent = dateStr;
                 document.getElementById('footerTime').textContent = dateStr;
 
             } catch (error) {
