@@ -1,4 +1,4 @@
-// Form Handler - Support Tickets → GitHub Issues mit @wbgrds Erwähnung
+// Form Handler - Support API via call.ob5.dev
 const form = document.getElementById('support-form');
 const submitBtn = document.getElementById('submit-btn');
 const messageDiv = document.getElementById('message');
@@ -31,54 +31,28 @@ form.addEventListener('submit', async (e) => {
       throw new Error('Ungültige E-Mail-Adresse');
     }
 
-    // GitHub API: Issue erstellen im WEBGUARDS-DE/customer Repo
-    const githubToken = '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'; // SOLLTE AUS ENV KOMMEN!
-    
-    const issueBody = `@wbgrds – Neues Support-Ticket von help.webguards.de
-
-## Kontakt
-**Name:** ${formData.name}
-**E-Mail:** ${formData.email}
-${formData.telefon ? `**Telefon:** ${formData.telefon}` : ''}
-
-## Kategorie
-\`${formData.kategorie}\`
-
-## Nachricht
-${formData.nachricht}
-
----
-**Ticket erstellt:** ${new Date().toLocaleString('de-DE')}
-`;
-
-    const response = await fetch('https://api.github.com/repos/WEBGUARDS-DE/customer/issues', {
+    // Support API: POST zu call.ob5.dev
+    const response = await fetch('https://call.ob5.dev/support', {
       method: 'POST',
       headers: {
-        'Authorization': `token ${githubToken}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        title: `Support: ${formData.name} – ${formData.kategorie}`,
-        body: issueBody,
-        labels: ['support-ticket', `cat/${formData.kategorie}`],
-        assignees: ['wbgrds']
-      })
+      body: JSON.stringify(formData)
     });
 
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.message || 'Fehler beim Erstellen des Tickets');
+      throw new Error(error.error || 'Fehler beim Absenden der Anfrage');
     }
 
     const result = await response.json();
-    
+
     // Erfolg
-    showMessage(`✅ Ticket #${result.number} erstellt! Wir kümmern uns darum.`, 'success');
+    showMessage('✅ Anfrage erhalten! Wir kümmern uns darum.', 'success');
     form.reset();
 
   } catch (error) {
     showMessage(`❌ Fehler: ${error.message}`, 'error');
-    console.error('Support Ticket Error:', error);
   } finally {
     submitBtn.disabled = false;
     loadingDiv.classList.remove('show');
