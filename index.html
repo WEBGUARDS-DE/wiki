@@ -1,212 +1,269 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WEBGUARDS Wiki</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBGUARDS Support – FAQ & Hilfe</title>
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@name": "WEBGUARDS Support",
+  "@url": "https://help.webguards.de",
+  "@logo": "https://webguards.de/webguards.svg",
+  "description": "WEBGUARDS Support – FAQ, Dokumentation, Tickets"
     }
-
-    :root {
-      --bg: #ffffff;
-      --bg-secondary: #f5f5f5;
-      --text: #1a1a1a;
-      --text-secondary: #666;
-      --accent: #0066cc;
-      --border: #e0e0e0;
-      --shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    [data-theme="dark"] {
-      --bg: #1a1a1a;
-      --bg-secondary: #2d2d2d;
-      --text: #e0e0e0;
-      --text-secondary: #aaa;
-      --border: #404040;
-      --shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--accent) 0%, #0052a3 100%);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.1em;
-      opacity: 0.95;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    .controls {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 30px;
-      gap: 10px;
-    }
-
-    .theme-toggle {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      color: var(--text);
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-
-    .theme-toggle:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 25px;
-      transition: all 0.3s;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--accent);
-    }
-
-    .card h3 {
-      color: var(--accent);
-      margin-bottom: 10px;
-      font-size: 1.3em;
-    }
-
-    .card p {
-      color: var(--text-secondary);
-      font-size: 0.95em;
-    }
-
-    .card-icon {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-secondary);
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid var(--border);
-      font-size: 0.9em;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8em;
-      }
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    </script>
+    <meta name="description" content="WEBGUARDS Support Center – FAQ, Dokumentation, Support-Tickets für WEBGUARDS Kunden.">
+    <meta property="og:title" content="WEBGUARDS Support – FAQ & Hilfe">
+    <meta property="og:description" content="WEBGUARDS Support Center – FAQ, Dokumentation, Tickets">
+    <meta property="og:image" content="https://webguards.de/webguards.svg">
+    <link rel="canonical" href="https://help.webguards.de/">
+    <script src="/assets/modal.js"></script>
 </head>
-<body data-theme="light">
-  <header>
-    <h1>📚 WEBGUARDS Wiki</h1>
-    <p>Zentrale Dokumentation für WEBGUARDS Projekte, Prozesse und Wissen</p>
-  </header>
-
-  <div class="container">
-    <div class="controls">
-      <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+<body>
+    <header>
+    <div class="header-content">
+        <a href="/" class="logo">
+            <svg height="35" version="1.1" viewBox="0 0 164 30.047" xmlns="http://www.w3.org/2000/svg" style="display: block; height: 35px;">
+                <g stroke-width="0">
+                    <path d="m14.201 30.02c-1.8571-0.12221-3.6299-0.56214-5.2914-1.3132-0.93135-0.42102-2.1241-1.1084-2.383-1.3733-0.72035-0.73719-0.49508-1.9523 0.44796-2.4154 0.20819-0.10222 0.29613-0.11952 0.60863-0.11952 0.44988 0 0.64256 0.0677 1.2248 0.43038 1.374 0.85588 2.9211 1.4163 4.6494 1.6843 0.65655 0.10179 2.6357 0.10179 3.2922 0 2.2158-0.34357 4.1862-1.1991 5.8742-2.5506 0.47509-0.38042 1.4091-1.3134 1.779-1.7772 1.2328-1.5456 2.1006-3.4376 2.4522-5.3464 0.27395-1.4876 0.25784-3.1274-0.04527-4.6199-0.24548-1.2082-0.86755-2.7959-1.4559-3.7156-0.21839-0.34146-0.28725-0.55829-0.28811-0.90729-0.0022-0.59761 0.31086-1.0936 0.85819-1.3631 0.25258-0.12436 0.32698-0.14083 0.63104-0.13976 0.5722 0.00198 0.96929 0.23742 1.3583 0.80518 0.41113 0.60008 1.0035 1.8619 1.3553 2.8868 0.55208 1.6087 0.80568 3.1495 0.80313 4.8799-0.0022 0.97119-0.04787 1.5632-0.19186 2.446-0.87994 5.3926-4.6806 9.9045-9.8603 11.705-1.8045 0.62736-3.9632 0.92539-5.8185 0.80332z" fill="#73caff"></path>
+                    <g fill="#464646">
+                        <path d="m32.881 8.4335h1.7792l0.0603 0.18719 2.7669 8.1584 3.4423-8.3461 0.8428 0.00142 3.4649 8.3291 2.7216-8.1428 0.0603-0.18719h1.8018l-0.1206 0.34318-3.9686 11.316v-7.6e-5l-0.73622-2.74e-4 -3.6402-8.7733-3.6735 8.7742 1.41e-4 -6.03e-4 -0.74344 6.78e-4 -3.9365-11.317z"></path>
+                    </g>
+                </g>
+            </svg>
+        </a>
+        <button id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-desktop">
+            <a href="/#faq">FAQ</a>
+            <a href="/#support">Support</a>
+            <a href="/#contact">Kontakt</a>
+        </nav>
     </div>
+    <nav id="mobile-nav">
+        <a href="/#faq">FAQ</a>
+        <a href="/#support">Support-Ticket</a>
+        <a href="/#contact">Kontakt</a>
+    </nav>
+</header>
 
-    <div class="grid">
-      <a href="docs/getting-started.md" class="card">
-        <div class="card-icon">🚀</div>
-        <h3>Getting Started</h3>
-        <p>Erste Schritte im Wiki. Schnellstart für neue Nutzer.</p>
-      </a>
+    <main>
+        <section class="hero">
+            <canvas id="networkCanvas"></canvas>
+            <h1>WEBGUARDS Support & Dokumentation</h1>
+            <p>Schnelle Antworten, zuverlässige Hilfe. Für Fragen und Probleme.</p>
+        </section>
 
-      <a href="docs/projects/" class="card">
-        <div class="card-icon">📦</div>
-        <h3>Projekte</h3>
-        <p>Projekt-spezifische Dokumentation und Guides.</p>
-      </a>
+        <section id="faq" class="faq-section">
+            <h2 class="section-title">Häufige Fragen (FAQ)</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h3>🔧 Wie funktioniert die n8n-Integration?</h3>
+                    <p>n8n verbindet verschiedene Systeme via Webhooks und APIs. Wir konfigurieren die Workflows passend zu deinen Prozessen. Die Daten fließen automatisiert – keine manuelle Arbeit mehr.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>🏗️ Können wir selbst hosten?</h3>
+                    <p>Ja! Docker + Traefik ermöglichen vollständige Kontrolle über deine Infrastruktur. Wir bauen dich ein Setup auf, dass du selbst maintainen kannst – oder wir übernehmen das.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>💾 Was kostet eine Setup?</h3>
+                    <p>Hängt vom Umfang ab. Wir machen eine kostenlose Analyse deiner Prozesse. Dann gibt's ein klares Angebot – keine versteckten Kosten.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>⚡ Wie schnell geht eine Automation?</h3>
+                    <p>Simple Workflows: 1-2 Wochen. Komplexe: 4-6 Wochen. Hängt davon ab, wie viele Systeme beteiligt sind. Wir geben dir Transparenz über Timeline und Milestones.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>🔒 Sind meine Daten sicher?</h3>
+                    <p>Ja. HTTPS überall, sichere Authentifizierung, Datenschutz nach DSGVO. Wenn du selbst hostest: volle Kontrolle über deine Daten.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>📞 Wie erreiche ich Support?</h3>
+                    <p>Per Ticket auf dieser Seite, WhatsApp oder Telefon. Wir antworten werktags innerhalb von 24 Stunden.</p>
+                </div>
+            </div>
+        </section>
 
-      <a href="docs/guides/" class="card">
-        <div class="card-icon">📖</div>
-        <h3>Guides</h3>
-        <p>How-To Guides und Best Practices.</p>
-      </a>
+        <section id="support" class="support-section">
+            <h2 class="section-title">Support-Ticket erstellen</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">
+                Problem oder Frage? Lass uns wissen. Wir kümmern uns darum.
+            </p>
+            
+            <form id="support-form" class="support-form">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Dein Name">
+                </div>
 
-      <a href="docs/reference/" class="card">
-        <div class="card-icon">⚙️</div>
-        <h3>Referenzen</h3>
-        <p>Technische Referenzen und API-Dokumentation.</p>
-      </a>
-    </div>
-  </div>
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required placeholder="deine@email.com">
+                </div>
 
-  <footer>
-    <p>WEBGUARDS Wiki | Zuletzt aktualisiert: 2026-07-05</p>
-  </footer>
+                <div class="form-group">
+                    <label for="telefon">Telefon (optional)</label>
+                    <input type="tel" id="telefon" name="telefon" placeholder="+49...">
+                </div>
 
-  <script>
-    const htmlElement = document.documentElement;
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    htmlElement.setAttribute('data-theme', savedTheme);
-    updateThemeButton();
+                <div class="form-group">
+                    <label for="kategorie">Kategorie *</label>
+                    <select id="kategorie" name="kategorie" required>
+                        <option value="">-- Wähle eine Kategorie --</option>
+                        <option value="technical">Technisches Problem</option>
+                        <option value="installation">Installation / Setup</option>
+                        <option value="billing">Abrechnung</option>
+                        <option value="account">Konto / Account</option>
+                        <option value="other">Sonstiges</option>
+                    </select>
+                </div>
 
-    function toggleTheme() {
-      const currentTheme = htmlElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      htmlElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeButton();
-    }
+                <div class="form-group">
+                    <label for="nachricht">Deine Nachricht *</label>
+                    <textarea id="nachricht" name="nachricht" rows="6" required placeholder="Beschreibe dein Problem oder deine Frage so genau wie möglich..."></textarea>
+                </div>
 
-    function updateThemeButton() {
-      const button = document.querySelector('.theme-toggle');
-      const theme = htmlElement.getAttribute('data-theme');
-      button.textContent = theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode';
-    }
-  </script>
+                <button type="submit" id="submit-btn" class="submit-button">
+                    <i class="fas fa-paper-plane"></i> Ticket absenden
+                </button>
+
+                <div id="loading" class="loading">
+                    <span class="spinner"></span> Wird gesendet...
+                </div>
+
+                <div id="message" class="message"></div>
+            </form>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Direktkontakt</h2>
+            <div class="contact-grid">
+                <div class="contact-column">
+                    <h3>Schneller Kontakt</h3>
+                    <p>Dringende Fragen? Ruf an oder schreib auf WhatsApp.</p>
+                </div>
+                <div class="contact-column">
+                    <a href="https://wa.me/493812744385" class="contact-button" target="_blank">
+                        <i class="fab fa-whatsapp button-icon"></i>
+                        <span class="button-label">WhatsApp</span>
+                    </a>
+                    <a href="tel:+493812744385" class="contact-button">
+                        <i class="fas fa-phone button-icon"></i>
+                        <span class="button-label">Direktanruf</span>
+                    </a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; color: var(--text-secondary);">
+                <p>
+                    <strong>WEBGUARDS UG</strong><br>
+                    Dienstleistungen & IT-Infrastruktur<br>
+                    Rostock, Deutschland<br>
+                    <br>
+                    <a href="/impressum/" style="color: var(--text);">Impressum</a> | 
+                    <a href="/datenschutz/" style="color: var(--text);">Datenschutz</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/assets/js/form-handler.js"></script>
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Mobile Nav Close on Link Click
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Network Canvas Animation (from de.webguards.root)
+        const canvas = document.getElementById('networkCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight * 0.5;
+            
+            const particles = [];
+            const particleCount = 50;
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 2;
+                    this.vy = (Math.random() - 0.5) * 2;
+                    this.radius = Math.random() * 3 + 1;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                    if (this.y > canvas.height) this.y = 0;
+                }
+                
+                draw() {
+                    ctx.fillStyle = 'rgba(115, 202, 255, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'transparent';
+                
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < 150) {
+                            ctx.strokeStyle = `rgba(115, 202, 255, ${0.2 * (1 - dist / 150)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+    </script>
 </body>
 </html>

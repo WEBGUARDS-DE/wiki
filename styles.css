@@ -1020,7 +1020,60 @@ footer p {
   }
 }
 
-/* Form Styles */
+/* FAQ Section */
+.faq-section {
+    padding: 3rem 2rem;
+    background: var(--bg-secondary);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.faq-card {
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s;
+}
+
+.faq-card:hover {
+    background: rgba(37, 99, 235, 0.15);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.faq-card h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.faq-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Support Form */
+.support-section {
+    padding: 3rem 2rem;
+    background: var(--bg);
+}
+
+.support-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: rgba(37, 99, 235, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -1028,8 +1081,8 @@ footer p {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 600;
     color: var(--text);
+    font-weight: 500;
 }
 
 .form-group input,
@@ -1037,13 +1090,12 @@ footer p {
 .form-group textarea {
     width: 100%;
     padding: 0.75rem;
+    background: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    background-color: var(--bg-secondary);
+    border-radius: 4px;
     color: var(--text);
     font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s;
 }
 
 .form-group input:focus,
@@ -1051,111 +1103,138 @@ footer p {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-light);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.optional {
-    font-weight: normal;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.submit-btn {
+.submit-button {
+    width: 100%;
+    padding: 1rem;
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: white;
-    padding: 1rem 2rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s;
 }
 
-.submit-btn:hover {
+.submit-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
-.submit-btn:disabled {
+.submit-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    transform: none;
 }
 
 .loading {
-    display: none;
-    margin-top: 1rem;
     text-align: center;
-    color: var(--accent-blue);
-    font-weight: 600;
+    color: var(--text);
+    margin-top: 1rem;
+    display: none;
 }
 
 .loading.show {
     display: block;
 }
 
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--primary-light);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .message {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
-    font-weight: 600;
     display: none;
 }
 
 .message.success {
     display: block;
-    background-color: rgba(16, 185, 129, 0.1);
+    background: rgba(16, 185, 129, 0.2);
     color: var(--success);
     border: 1px solid var(--success);
 }
 
 .message.error {
     display: block;
-    background-color: rgba(255, 107, 107, 0.1);
+    background: rgba(255, 107, 107, 0.2);
     color: var(--accent-red);
     border: 1px solid var(--accent-red);
 }
 
-.support-form-section {
-    background: rgba(26, 58, 90, 0.5);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    backdrop-filter: blur(10px);
+/* Contact Section */
+.contact-section {
+    padding: 3rem 2rem;
+    background: var(--bg-secondary);
 }
 
-/* Footer */
-footer {
-    background-color: var(--bg-secondary);
-    border-top: 1px solid var(--border);
-    padding: 2rem;
-    margin-top: 4rem;
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-column {
     text-align: center;
+}
+
+.contact-column h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.contact-column p {
     color: var(--text-secondary);
+    margin-bottom: 1.5rem;
 }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-links {
-    margin-top: 1rem;
-}
-
-.footer-links a {
-    margin: 0 1rem;
-    color: var(--text-secondary);
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border-radius: 4px;
     text-decoration: none;
-    transition: color 0.3s;
+    margin: 0 0.5rem;
+    transition: all 0.3s;
 }
 
-.footer-links a:hover {
-    color: var(--accent-blue);
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
+
+.button-icon {
+    font-size: 1.25rem;
+}
+
