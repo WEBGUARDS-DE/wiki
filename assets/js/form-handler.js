@@ -1,5 +1,5 @@
 // GitHub API Config
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = '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';
 const GITHUB_OWNER = 'WEBGUARDS-DE';
 const GITHUB_REPO = 'help';
 
