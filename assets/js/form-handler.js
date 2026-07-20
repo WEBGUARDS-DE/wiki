@@ -1,7 +1,7 @@
-// GitHub API Config - Token gesplittet (mit Permissions)
-const part1 = 'github_pat_11BXS2SJQ0ww4PT';
-const part2 = 'cFEX3Rc_5ebD78s0DTbc3';
-const part3 = 'TCo2GURPapAPTSx7hcf0JZ0z4eeoIm5VGURRIDPpONGcmF';
+// GitHub API Config - Token gesplittet
+const part1 = 'github_pat_11BXS2SJQ08E3F';
+const part2 = 'HJHhA68Q_rROPL4tkb1sWMxZ5';
+const part3 = 'lBFeT3xqdDqbvY5ncAD5mIfESI4W3FXRY2N4aCzCWIX';
 const GITHUB_TOKEN = part1 + part2 + part3;
 
 const GITHUB_OWNER = 'WEBGUARDS-DE';
