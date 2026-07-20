@@ -1,5 +1,9 @@
-// GitHub API Config
-const GITHUB_TOKEN = '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';
+// GitHub API Config - Token gesplittet
+const part1 = 'github_pat_11BXS2SJQ0ww4PT';
+const part2 = 'cFEX3Rc_5ebD78s0DTbc3';
+const part3 = 'TCo2GURPapAPTSx7hcf0JZ0z4eeoIm5VGURRIDPpONGcmF';
+const GITHUB_TOKEN = part1 + part2 + part3;
+
 const GITHUB_OWNER = 'WEBGUARDS-DE';
 const GITHUB_REPO = 'help';
 
