@@ -5,4 +5,4 @@ emoji: 💾
 
 # Was kostet eine Setup?
 
-Hängt vom Umfang ab. Wir machen eine kostenlose Analyse deiner Prozesse. Dann gibt's ein klares Angebot – keine versteckten Kosten.
+Die Kosten für das Setup hängen vom gewünschten Umfang und der Komplexität Ihrer Prozesse ab. Deshalb starten wir mit einer kostenlosen Analyse, um Ihren Bedarf genau zu verstehen. Auf dieser Basis erhalten Sie ein transparentes und nachvollziehbares Angebot – ohne versteckte Kosten.
