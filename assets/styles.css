@@ -1461,3 +1461,133 @@ li {
   margin: 35px 0;
   border-left: 4px solid #73caff;
 }
+
+/* Integrations Section */
+.integrations-section {
+  background-color: var(--bg);
+  padding: 3rem 2rem;
+}
+
+.comparison-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.comparison-container h2 {
+  color: var(--text);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+/* Comparison Table */
+.comparison-table {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.comparison-table thead {
+  background: rgba(37, 99, 235, 0.15);
+}
+
+.comparison-table th {
+  color: var(--text);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-table td {
+  color: var(--text-secondary);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Comparison Cards */
+.comparison-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  row-gap: 2rem;
+  column-gap: 2rem;
+  margin: 2rem 0;
+}
+
+.comparison-card {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+.comparison-card:hover {
+  background: rgba(37, 99, 235, 0.15);
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.comparison-card h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.comparison-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.comparison-card ul {
+  margin-left: 2rem;
+}
+
+.comparison-card li {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.comparison-card.sipgate {
+  border-left: 4px solid #10b981;
+}
+
+.comparison-card.easybell {
+  border-left: 4px solid #3b82f6;
+}
+
+/* Recommendation Box */
+.recommendation-box {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(16, 185, 129, 0.1));
+  border: 2px solid var(--primary-light);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.recommendation-box h4 {
+  color: var(--text);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.recommendation-box p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0.5rem 0;
+}
+
+.recommendation-box strong {
+  color: var(--text);
+}
