@@ -16,11 +16,21 @@ function loadQuestions() {
     const content = fs.readFileSync(filePath, 'utf-8');
     const { data, content: body } = matter(content);
 
+    // Finde erste nicht-leere Zeile mit # (Titel)
+    const lines = body.split('\n').map(l => l.trim()).filter(l => l);
+    const titleLine = lines.find(l => l.startsWith('#')) || '';
+    const title = titleLine.replace(/^#+\s+/, '').trim();
+
+    // Content ist alles nach der Titel-Zeile
+    const contentAfterTitle = body.split('\n').slice(
+      body.split('\n').findIndex(l => l.startsWith('#')) + 1
+    ).join('\n').trim();
+
     return {
       order: data.order || 999,
       emoji: data.emoji || '❓',
-      title: body.split('\n')[0].replace('# ', ''),
-      content: marked(body.split('\n').slice(1).join('\n')),
+      title: title,
+      content: marked(contentAfterTitle),
       file
     };
   });
@@ -96,109 +106,30 @@ function generateHTML(questions) {
             <div class="faq-grid">
 ${faqCards}
             </div>
-
-            <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Weitere Fragen?</h3>
-            <p style="margin-bottom: 2rem;">Nutze unser <a href="/support/">Support-Formular</a> oder kontaktiere uns direkt via Email oder Telefon.</p>
         </section>
     </main>
 
     <footer>
-    © 1999 – 2026 WEBGUARDS. Alle Rechte vorbehalten.
-</footer>
+        <div class="footer-content">
+            <p>&copy; 2024–2026 WEBGUARDS UG. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobile-nav');
-        
-        hamburger.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-        });
-
-        document.querySelectorAll('#mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-            });
-        });
-
-        const canvas = document.getElementById('networkCanvas');
-        if (canvas) {
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight * 0.5;
-            
-            const particles = [];
-            const particleCount = 50;
-            
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.vx = (Math.random() - 0.5) * 2;
-                    this.vy = (Math.random() - 0.5) * 2;
-                    this.radius = Math.random() * 3 + 1;
-                }
-                
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    
-                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-                }
-                
-                draw() {
-                    ctx.fillStyle = '#73caff';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-            
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-            
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-                
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 100) {
-                            ctx.strokeStyle = 'rgba(115, 202, 255, ' + (1 - distance / 100) + ')';
-                            ctx.lineWidth = 1;
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                
-                requestAnimationFrame(animate);
-            }
-            
-            animate();
-        }
-    </script>
+    <script src="/assets/js/form-handler.js"></script>
+    <script src="/assets/js/network.js"></script>
 </body>
 </html>`;
 
   return htmlContent;
 }
 
-console.log('FAQ-Generator startet...');
-const questions = loadQuestions();
-console.log('Found ' + questions.length + ' questions');
-
-const html = generateHTML(questions);
-fs.writeFileSync(OUTPUT_FILE, html, 'utf-8');
-console.log('FAQ-page generated at ' + OUTPUT_FILE);
+try {
+  const questions = loadQuestions();
+  const html = generateHTML(questions);
+  fs.writeFileSync(OUTPUT_FILE, html);
+  console.log(`✅ FAQ generated with ${questions.length} questions`);
+  questions.forEach(q => console.log(`  ${q.order}. ${q.emoji} ${q.title}`));
+} catch (error) {
+  console.error('❌ Error:', error.message);
+  process.exit(1);
+}
