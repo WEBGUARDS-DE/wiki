@@ -32,11 +32,12 @@ jobs:
           ls -lah faq/index.html
       
       - name: Commit and push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # Prüfe ob Datei existiert
           if [ ! -f "faq/index.html" ]; then
             echo "ERROR: faq/index.html wurde nicht generiert!"
             exit 1
@@ -54,9 +55,9 @@ jobs:
             echo "Committing changes..."
             git commit -m "build(faq): auto-generated from markdown"
             echo "Pushing to GitHub..."
-            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main || {
-              echo "Push failed. Current HEAD:"
-              git log --oneline -1
-              exit 1
+            # Versuche mit GITHUB_TOKEN – sollte mit write-permissions funktionieren
+            git push || {
+              echo "Push failed. Trying alternative..."
+              git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
             }
           fi
