@@ -1375,7 +1375,46 @@ footer p {
 .issue-card,
 .practice-card,
 .faq-card {
-  background: rgba(115, 202, 255, 0.05);
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+.doc-card:hover,
+.issue-card:hover,
+.practice-card:hover,
+.faq-card:hover {
+  background: rgba(37, 99, 235, 0.15);
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.doc-card h3,
+.issue-card h3,
+.practice-card h3,
+.faq-card h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.doc-card p,
+.issue-card p,
+.practice-card p,
+.faq-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* List Indentation */
+ul {
+  margin-left: 2rem;
+}
+
+li {
+  margin-left: 1rem;
 }
 
 /* Section Backgrounds */
