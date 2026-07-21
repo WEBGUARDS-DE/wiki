@@ -1380,6 +1380,7 @@ footer p {
   border-radius: 8px;
   padding: 2rem;
   transition: all 0.3s;
+  margin: 35px 0;
 }
 
 .doc-card:hover,
