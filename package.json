@@ -1,0 +1,11 @@
+{
+  "name": "webguards-help",
+  "version": "1.0.0",
+  "scripts": {
+    "build:faq": "node build-faq.js"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^11.0.0"
+  }
+}
