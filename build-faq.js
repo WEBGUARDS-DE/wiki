@@ -6,7 +6,6 @@ const { marked } = require('marked');
 const QUESTIONS_DIR = path.join(__dirname, 'faq', 'questions');
 const OUTPUT_FILE = path.join(__dirname, 'faq', 'index.html');
 
-// Alle .md Dateien laden und sortieren
 function loadQuestions() {
   const files = fs.readdirSync(QUESTIONS_DIR)
     .filter(f => f.endsWith('.md'))
@@ -29,16 +28,18 @@ function loadQuestions() {
   return questions.sort((a, b) => a.order - b.order);
 }
 
-// HTML generieren
 function generateHTML(questions) {
-  const faqCards = questions.map(q => `
+  const faqCards = questions.map(q => {
+    const cardHtml = `
                 <div class="faq-card">
                     <h3>${q.emoji} ${q.title}</h3>
                     <p>${q.content.replace(/<[^>]*>/g, '')}</p>
                 </div>
-            `).join('');
+            `;
+    return cardHtml;
+  }).join('');
 
-  return `<!DOCTYPE html>
+  const htmlContent = `<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -66,7 +67,7 @@ function generateHTML(questions) {
             <a href="/faq/">FAQ</a>
             <a href="/support/">Support</a>
             <div class="nav-dropdown">
-                <a href="#" class="nav-dropdown-toggle">Datenschutz &amp; Recht ▼</a>
+                <a href="#" class="nav-dropdown-toggle">Datenschutz &amp; Recht</a>
                 <div class="nav-dropdown-menu">
                     <a href="/impressum/">Impressum</a>
                     <a href="/datenschutz/">Datenschutz</a>
@@ -91,7 +92,7 @@ function generateHTML(questions) {
         </section>
 
         <section class="faq-section">
-            <h2 class="section-title">FAQ – Fragen & Antworten</h2>
+            <h2 class="section-title">FAQ – Fragen &amp; Antworten</h2>
             <div class="faq-grid">
 ${faqCards}
             </div>
@@ -172,7 +173,7 @@ ${faqCards}
                         const distance = Math.sqrt(dx * dx + dy * dy);
                         
                         if (distance < 100) {
-                            ctx.strokeStyle = \`rgba(115, 202, 255, \${1 - distance / 100})\`;
+                            ctx.strokeStyle = 'rgba(115, 202, 255, ' + (1 - distance / 100) + ')';
                             ctx.lineWidth = 1;
                             ctx.beginPath();
                             ctx.moveTo(particles[i].x, particles[i].y);
@@ -190,12 +191,14 @@ ${faqCards}
     </script>
 </body>
 </html>`;
+
+  return htmlContent;
 }
 
-console.log('📝 Generiere FAQ-Seite...');
+console.log('FAQ-Generator startet...');
 const questions = loadQuestions();
-console.log(\`✅ \${questions.length} Fragen gefunden\`);
+console.log('Found ' + questions.length + ' questions');
 
 const html = generateHTML(questions);
 fs.writeFileSync(OUTPUT_FILE, html, 'utf-8');
-console.log(\`✅ FAQ-Seite generiert: \${OUTPUT_FILE}\`);
+console.log('FAQ-page generated at ' + OUTPUT_FILE);
